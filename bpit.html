@@ -1,0 +1,656 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+    <!-- uncomment lines below to include extra p5 libraries -->
+    <!--<script language="javascript" src="libraries/p5.dom.js"></script>-->
+    <!--<script language="javascript" src="libraries/p5.sound.js"></script>-->
+    <script language="javascript" type="text/javascript" src="sketch.js"></script>
+    <!-- this line removes any default padding and style. you might only need one of these values set. -->
+    <style>
+        body {
+            padding: 0;
+            margin: 0px;
+        }
+
+    </style>
+</head>
+<style>
+* {
+        margin: 0px;
+        padding: 0px;
+        z-index: 6;
+    }
+    
+    h1 {
+        text-align: center;
+        color: purple;
+        font-weight: 100;
+        margin-top: 15px;
+        background-color: whitesmoke;
+        font-size: 30px;
+        background: -moz-linear-gradient(left, purple);
+        margin-left: 30px;
+        margin-right: 20px;
+        z-index: 6;
+    }
+    
+    p {
+        text-align: center;
+        color: red;
+        background-color: whitesmoke;
+        /* margin-top: -20px;*/
+        /* margin-top: -20px;*/
+        background: -moz-linear-gradient(left, purple);
+        margin-left: 30px;
+        margin-right: 20px;
+        z-index: 6;
+    }
+    
+    ul li a {
+        text-decoration: none;
+        color: white;
+        background-color: blueviolet;
+        list-style-type: none;
+        position: relative;
+        text-align: center;
+        line-height: 36px;
+        display: block;
+        width: auto;
+        z-index: 3;
+    }
+    
+    ul li {
+        float: left;
+        list-style-type: none;
+        background-color: blueviolet;
+        width: 130px;
+        height: 36px;
+        text-align: center;
+        line-height: 36px;
+        display: block;
+        z-index: 3;
+    }
+    
+    ul {
+        margin-left: 30px;
+        width: auto;
+    }
+    
+    ul li a:hover {
+        background-color: red;
+        color: black;
+        z-index: 3;
+    }
+    
+    ul ul {
+        display: none;
+        position: absolute;
+        width: auto;
+        padding: 10px;
+        z-index: 3;
+    }
+    
+    ul ul li {
+        width: 280px;
+        background-color: antiquewhite;
+        text-align: left;
+        z-index: 3;
+    }
+    
+    ul li:hover>ul {
+        display: block;
+        position: relative;
+        width: auto;
+        z-index: 3;
+    }
+    
+    ul li:hover>ul li a {
+        background-color: whitesmoke;
+        color: black;
+        z-index: 3;
+    }
+    
+    ul li:hover>ul li {
+        border-bottom: 1px solid #6b727c;
+        border-top: 1px solid #575f6a;
+        padding: 5px 5px;
+        background-color: whitesmoke;
+        z-index: 3;
+    }
+    
+    ul li:hover>ul li a:hover {
+        background-color: #BFA0FE;
+        border-radius: 5px;
+        z-index: 3;
+    }
+    
+    ul ul ul {
+        margin-left: 280px;
+        top: -45px;
+        z-index: 3;
+    }
+    
+    ul ul ul li {
+        margin-left: 0px;
+        width: 200px;
+        z-index: 3;
+    }
+    
+    #outerbox {
+        overflow: hidden;
+        width: 1300px;
+        margin-left: 30px;
+        margin-top: -20px;
+        z-index: 2;
+    }
+    
+    #sliderbox {
+        position: relative;
+        width: 5200px;
+        animation-name: robin;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        z-index: 2;
+        margin-top: 10px;
+    }
+    
+    #sliderbox img {
+        float: left;
+    }
+    
+    @keyframes robin {
+        0% {
+            left: 0px;
+        }
+        20% {
+            left: 0px;
+        }
+        25% {
+            left: -1300px;
+        }
+        45% {
+            left: -1300px;
+        }
+        50% {
+            left: -2600px;
+        }
+        70% {
+            left: -2600px;
+        }
+        75% {
+            left: -3900px;
+        }
+        95% {
+            left: -3900px;
+        }
+        100% {
+            left: 0px;
+        }
+    }
+    
+    h1 img {
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+    
+    #robin {
+        margin-right: 40px;
+        margin-top: 20px;
+        width: 230px;
+        background-color: purple;
+        height: 500px;
+        float: right;
+    }
+    
+    #innerrobin {
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 22px;
+    }
+    
+    #outerrobin {
+        margin-left: 50px;
+        margin-top: 20px;
+        width: 230px;
+        background-color: purple;
+        height: 500px;
+    }
+    
+    #outerrobin p {
+        margin-top: 30px;
+        z-index: 6;
+    }
+    
+    #robininner {
+        color: white;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 22px;
+        text-align: center;
+        margin-top: 20px;
+        background-color: purple;
+    }
+    
+    #robininner p a {
+        text-align: center;
+        z-index: 1;
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+        height: 15px;
+        margin-bottom: 25px;
+        padding-top: 20px;
+    }
+    
+    #robininner p {
+        position: relative;
+        animation-name: vivek;
+        animation-duration: 20s;
+        animation-iteration-count: infinite;
+        margin-top: 8px;
+        background-color: purple;
+        z-index: 1;
+    }
+    /* innerrobin p a:hover {
+        animation-play-state: paused;*/
+}
+
+/*@keyframes vivek {
+        0% {
+            top: 300px;
+        }
+        20% {
+            top: 300px;
+        }
+        25% {
+            top: -50px;
+        }
+        45% {
+            top: -50px;
+        }
+        50% {
+            top: -100px;
+        }
+        70% {
+            top: -100px;
+        }
+        75% {
+            top: -150px;
+        }
+        95% {
+            top: -150px;
+        }
+        100% {
+            top: -200px;
+        }
+    }*/
+
+/*  @keyframes vivek {
+        0% {
+            top: 300px;
+        }
+        25% {
+            top: -200px;
+        }
+        50% {
+            top: -200px;
+        }
+        75% {
+            top: -200px;
+        }
+        100% {
+            top: 0px;
+        }
+    }*/
+#outervivek p {
+    float: right;
+    margin-top: 20px;
+    width: 700px;
+    background-color: purple;
+    margin-right: 50px;
+}
+#innervivek {
+    background-color: purple;
+    width: 700px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 20px;
+}
+#innervivek p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 25px;
+    border-radius: 10px;
+    width: auto;
+    color: yellow;
+    height: 45px;
+    line-height: 45px;
+    background-color: black;
+}
+#innervivek p1 {
+    float: right;
+    color: white;
+    font-size: 20px;
+    width: 500px;
+}
+#innervivek p2 img {
+    float: left;
+    width: 180px;
+    height: 380px;
+    margin-left: 12px;
+    border-radius: 25px;
+    margin-top: 5px;
+}
+#innervivek p3 img {
+    margin-left: 100px;
+    border-radius: 25px;
+}
+#innervivek {
+    background: -webkit-linear-gradient(bottom, black 10%, rebeccapurple 30%, purple 60%);
+    box-shadow: 5px -5px 5px black;
+}
+#outerrobin {
+    box-shadow: -7px 7px 15px black;
+    background: -webkit-repeating-linear-gradient(100deg, rebeccapurple, purple 10%);
+}
+#robin {
+    box-shadow: 7px 7px 15px black;
+    background: -webkit-repeating-linear-gradient(100deg, rebeccapurple, purple 10%);
+}
+robininner ul li {
+    width: 180px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    background-color: white;
+    box-shadow: -10px 10px 60px aliceblue;
+    z-index: 1;
+}
+#robininner ul li a {
+    color: black;
+    text-decoration: none;
+    background-color: aliceblue;
+    border: 3px solid purple;
+    z-index: 1;
+    height: 35px;
+    line-height: 35px;
+    font-size: 20px;
+    width: 180px;
+}
+#outerrobin ul li {
+    box-shadow: -10px 10px 25px aliceblue;
+    /*margin-bottom: 20px;
+    line-height: 500px;*/
+}
+#footer p {
+    float: right;
+    width: 350px;
+    background-color: blueviolet;
+    color: aliceblue;
+    padding: 18px;
+    margin-left: 20px;
+    z-index: 5;
+}
+#footer {
+    float: left;
+    color: aliceblue;
+    background-color: blueviolet;
+    width: 1260px;
+    margin-left: 50px;
+    margin-top: 10px;
+    z-index: 5;
+}
+#rob {
+    width: 1600px;
+    color: black;
+    background-color: white;
+    margin-left: 50px;
+    z-index: 5;
+}
+
+</style>
+
+<body>
+    <h1>
+        <img src="bpit.png" width="150px" height="60px" align="left" /> BHAGWAN PARSHURAM INSTITUTE OF TECHNOLOGY<br>
+    </h1>
+    <p>
+        Affiliated To GGSIPU, Delhi<br> A Unit Of Bhartiya Bhramin Charitable Trust<br>
+    </p>
+    <div id="list">
+        <ul>
+            <li>
+                <a href="bpit.html">HOME</a>
+            </li>
+            <li>
+                <a href="">ABOUT US</a>
+                <ul>
+                    <li><a href="http://www.bpitindia.com/About_Us/CollegeProfile.aspx">College Profile</a></li>
+                    <li><a href="http://www.bpitindia.com/About_Us/Trust.aspx">Trust</a></li>
+                    <li><a href="http://www.bpitindia.com/About_Us/Chairman'sMessage.aspx">Chairman's Message</a></li>
+                    <li><a href="http://www.bpitindia.com/About_Us/Principal'sMessage.aspx">Principal's Message</a></li>
+                    <li><a href="http://www.bpitindia.com/About_Us/VisionMission.aspx">Vision/Mission</a></li>
+                    <li><a href="http://www.bpitindia.com/About_Us/Pillars.aspx">Pillar of BPIT</a></li>
+                    <li><a href="http://www.bpitindia.com/Department/Department.aspx">Certification & Accrediations</a></li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="">ACADEMICS</a>
+                <ul>
+                    <li><a href="">Undergraduate</a>
+                        <ul>
+                            <li><a href="http://www.bpitindia.com/Academics/Btech.aspx">B.Tech</a></li>
+                            <li><a href="http://www.bpitindia.com/Academics/BBA.aspx">BBA</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="http://www.bpitindia.com/Academics/MBA.aspx">Postgraduate</a>
+                        <ul>
+                            <li><a href="http://www.bpitindia.com/Academics/MBA.aspx">MBA</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="">DEPARTMENT</a>
+                <ul>
+                    <li><a href="http://www.bpitindia.com/Department/AppliedSciences/AppliedSciences.aspx">Applied Science</a></li>
+                    <li><a href="http://www.bpitindia.com/Department/ComputerScience/ComputerScience.aspx">Computer Science & Engineering</a></li>
+                    <li><a href="http://www.bpitindia.com/Department/InformationTechnology/InformationTechnology.aspx">Information Technology Engineering</a></li>
+                    <li><a href="http://www.bpitindia.com/Department/ElectronicsCommunications/ElectronicsCommunications.aspx">Electonics & Communication Engineering</a></li>
+                    <li><a href="http://www.bpitindia.com/Department/ElectricalsElectronics/ElectricalsElectronics.aspx">Electrical & Electronics</a></li>
+                    <li><a href="">School of Business Administration</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">FACILITIES</a>
+                <ul>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/Library.aspx">Library</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/Hostel.aspx">Hostel</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/MedicalRoom.aspx">Medical Room</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/BookBank.aspx">Book Bank</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/SeminarHall.aspx">Seminar Hall</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/EduSat.aspx">Edusat</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/SportsRoom.aspx">Sports Room</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Facilities/Canteen.aspx">Canteen</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="">PLACEMENTS</a>
+                <ul>
+                    <li>
+                        <a href="http://www.bpitindia.com/Placement/Team.aspx">Team</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Placement/Trainings.aspx">Training</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Placement/OurRecruiters.aspx">Our Recruiter</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Placement/ExpertTalks.aspx">Expert Taks & Seminar</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Placement/IndustrialTour.aspx">Industrial Tours & Workshops</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Placement/StudentsPlaced.aspx">List Of Student Placed</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="">STUDENT LIFE</a>
+                <ul>
+                    <li>
+                        <a href="http://www.bpitindia.com/Examinations/Examcell.aspx">EXAMINATIONS</a>
+                        <ul>
+                            <li><a href="http://www.bpitindia.com/Examinations/Notice.aspx">Notice</a></li>
+                            <li><a href="http://www.bpitindia.com/Examinations/Datesheet.aspx">DateSheet</a></li>
+                            <li><a href="http://www.bpitindia.com/Examinations/Results.aspx">Result</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Student_Life/Events.aspx">Events</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Student_Life/Publications.aspx">Publication</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Student_Life/Projects.aspx">Projects</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Student_Life/Achievements.aspx">Achievements</a>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Student_Life/Societies.aspx">Societies</a>
+                        <ul>
+                            <li><a href="http://www.bpitindia.com/Student_Life/Societies.aspx#ieee">IEEE</a></li>
+                            <li><a href="http://www.bpitindia.com/Student_Life/Societies.aspx#csi">CSI</a></li>
+                            <li><a href="http://www.bpitindia.com/Student_Life/Societies.aspx#iso">ISO</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="http://www.bpitindia.com/Student_Life/Sports.aspx">sports</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://www.bpitindia.com/NIRF/NIRF.aspx">NIRF</a>
+                <ul>
+                    <li><a href="http://www.bpitindia.com/NIRF/NIRF.aspx">NIRF-BPIT</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://www.bpitindia.com/Disclosures.aspx">DISCLOSURE</a>
+                <ul>
+                    <li>
+                        <a href="http://www.bpitindia.com/Disclosures.aspx">
+                            DISCLOSURE-BPIT</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="http://www.bpitindia.com/Contact_Us/Contact.aspx">CONTACT US</a>
+            </li>
+
+        </ul>
+    </div>
+    <div id="outerbox">
+        <div id="sliderbox">
+            <img src="bpit1.jpg" width="650px" height="280px" />
+            <img src="bpit2.jpg" width="650px" height="280px" />
+            <img src="bpit3.jpg" width="650px" height="280px" />
+            <img src="bpit4.jpg" width="650px" height="280px" />
+            <img src="bpit5.jpg" width="650px" height="280px" />
+            <img src="bpit6.jpg" width="650px" height="280px" />
+            <img src="bpit7.JPG" width="650px" height="280px" />
+            <img src="bpit2.png" width="650px" height="280px" />
+        </div>
+    </div>
+    <div id="robin">
+        <div id="innerrobin">
+            Notices <br> <br> <br> <br> <br>
+            <a href="https://www.myamcat.com/"><img src="amcat.png" width="150px" height="90px" align="center"></a><br><br>
+            <a href="http://www.bpitindia.com/Bodh/BODH.aspx"><img src="journal.jpg" width="150px" height="200px" align="center"></a>
+
+
+        </div>
+
+    </div>
+    <div id="outervivek">
+        <div id="innervivek">
+            <p> WELCOME TO BPIT</p><br>
+            <p2> <img src="bpit8.jpg" width="80px" height="200px" /></p2>
+            <p1>
+                The Institute is situated at a prime location on Dr.K.N.katju marg, which separates sector 11 and sector 17 in rohini, north delhi.Adjacent to BPIT is the MCD Building, which Houses railway Reservation Centre . it is well connected with public transport system like DTC buses and Metro Shuttles.Rithala Metro Station on Metro Line 1 (RED LINE) and the Rohini Sector-18/19 metro Station on Metro line 2 (Yellow Line) are at Distance of 4.6 km & 4.3 km respectively<br>
+            </p1>
+            <p3> <img src="bpit1.jpg" width="300px" height="200px" align="center" /></p3>
+        </div>
+    </div>
+    <div id="outerrobin">
+        <div id="robininner">
+            <p1>Events and News</p1><br><br>
+            <!-- <p>
+                <a href="">Application are invited for the post of professor/associate professor/assistant professor in Department of EEE</a><br>
+                <a href="">Smart Indian Hackathon</a><br>
+                <a href="">Inter-Departmental Enivoremental Studies Model Competition</a><br>
+                <a href="">Sports Meet Schedule 07-03-2017</a><br>
+                <a href="">Sports Meet Schedule 2017</a><br>
+                <a href="">Vacancy for the post for Registrar/Assistant Registrar</a><br>
+                <a href="">Vithiya saksharatra abhiyan (VISARA) volunteers from BPIT</a><br>
+                <a href="">Pool campus drive by m/s sopra steria on 22nd feb 2016 at BPIT </a>
+            </p>-->
+            <ul>
+                <li>
+                    <a href="http://www.bpitindia.com/Academics/Btech.aspx">Student Registration</a>
+                </li>
+                <li>
+                    <a href="http://www.bpitindia.com/Students/Verification_Login.aspx">Student Login</a>
+                </li>
+                <li>
+                    <a href="http://www.bpitindia.com/Faculty/Faculty_Login.aspx">Faculty Login</a>
+                </li>
+                <li>
+                    <a href="http://www.bpitindia.com/Bodh/BODH.aspx">BBJTM(BODH)</a>
+                </li>
+                <li>
+                    <a href="http://www.bpitindia.com/Gallery.aspx">Gallery</a>
+                </li>
+                <li>
+                    <a href="http://www.bpitindia.com/Disclosures.aspx">Disclosure</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="footer">
+        <p>
+            Contact Us:<br> BHAGWAN PARSHURAM INSTITUTE OF TECHNOLOGY<br> Tel:011-27572900,27571080
+            <br> Email:bpitindia.yahoo.com
+            <br> web:www.bpitindia.com
+            <br>
+        </p>
+
+        Quick Links:<br><br> Website Home<br> GGSIPU Website<br> Spoken Tutorial IIT Bombay<br> Recruitement
+        <br> Remote Centre IIT Bombay/Kharagpur<br> BODH BPIT International journal of Technology & management<br> Photo Gallery<br><br> Copyright @ BHAGWAN PARSHURAM INSTITUTE OF TECHNOLOGY<br> Design & Dveloped by:MAIT Student</div>
+</body>
+
+</html>
